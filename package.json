@@ -17,7 +17,9 @@
   },
   "scripts": {
     "postinstall": "node postinstall.js",
-    "test": "eslint --config \"./eslint.config.mjs\" . && mocha"
+    "lint": "eslint --config \"./eslint.config.mjs\" .",
+    "format": "eslint --config \"./eslint.config.mjs\" --fix .",
+    "test": "yarn lint && mocha"
   },
   "files": [
     "index.js",

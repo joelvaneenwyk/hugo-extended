@@ -1,8 +1,11 @@
-# <img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="115"> via NPM [![npm](https://img.shields.io/npm/v/hugo-extended?color=blue&logo=npm)](https://www.npmjs.com/package/hugo-extended) [![CI status](https://github.com/jakejarvis/hugo-extended/workflows/Run%20tests/badge.svg)](https://github.com/jakejarvis/hugo-extended/actions)
+# Hugo Extended
 
 > Plug-and-play binary wrapper for [Hugo Extended](https://gohugo.io/), the awesomest static-site generator.
 
 ## Installation
+
+<!-- markdownlint-disable MD033 -->
+<img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="115"> via NPM [![npm](https://img.shields.io/npm/v/hugo-extended?color=blue&logo=npm)](https://www.npmjs.com/package/hugo-extended) [![CI status](https://github.com/jakejarvis/hugo-extended/workflows/Run%20tests/badge.svg)](https://github.com/jakejarvis/hugo-extended/actions)
 
 ```sh
 npm install hugo-extended --save-dev
@@ -26,7 +29,7 @@ yarn add postcss postcss-cli autoprefixer --dev
 
 The following examples simply refer to downloading and executing Hugo as a Node dependency. See the [official Hugo docs](https://gohugo.io/documentation/) for guidance on actual Hugo usage.
 
-### via CLI / `package.json`:
+### via CLI / `package.json`
 
 The `build:preview` script below is designed for [Netlify deploy previews](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/), where [`$DEPLOY_PRIME_URL`](https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata) is substituted for the base URL (usually ending in .netlify.app) of each pull request, branch, or commit preview.
 
@@ -75,7 +78,7 @@ Serving pages from memory
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 ```
 
-### via API:
+### via API
 
 ```js
 // version.js:
