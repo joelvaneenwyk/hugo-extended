@@ -28,7 +28,7 @@
   "types": "./index.d.ts",
   "dependencies": {
     "careful-downloader": "^3.0.0",
-    "log-symbols": "^5.1.0",
+    "log-symbols": "^6.0.0",
     "read-pkg-up": "^9.1.0"
   },
   "devDependencies": {
