@@ -4,6 +4,8 @@
   "description": "✏️ Plug-and-play binary wrapper for Hugo Extended, the awesomest static-site generator.",
   "license": "MIT",
   "homepage": "https://github.com/jakejarvis/hugo-extended",
+  "type": "module",
+  "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781",
   "author": {
     "name": "Jake Jarvis",
     "email": "jake@jarv.is",
@@ -12,6 +14,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jakejarvis/hugo-extended.git"
+  },
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "test": "eslint --config \"./eslint.config.mjs\" . && mocha"
   },
   "files": [
     "index.js",
@@ -23,26 +29,21 @@
     "hugo": "lib/cli.js",
     "hugo-extended": "lib/cli.js"
   },
-  "type": "module",
   "exports": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "careful-downloader": "^3.0.0",
-    "log-symbols": "^5.1.0",
-    "read-pkg-up": "^9.1.0"
-  },
-  "devDependencies": {
     "@jakejarvis/eslint-config": "*",
+    "careful-downloader": "^3.0.0",
     "del": "^7.1.0",
-    "eslint": "^8.56.0",
-    "mocha": "^10.4.0"
-  },
-  "scripts": {
-    "postinstall": "node postinstall.js",
-    "test": "eslint . && mocha"
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "log-symbols": "^6.0.0",
+    "mocha": "^10.4.0",
+    "read-pkg-up": "^10.1.0"
   },
   "engines": {
-    "node": ">=14.14"
+    "node": ">=18"
   },
   "keywords": [
     "hugo",
@@ -62,20 +63,5 @@
     "frontmatter",
     "go",
     "golang"
-  ],
-  "eslintConfig": {
-    "extends": "@jakejarvis/eslint-config",
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module"
-    },
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "ignorePatterns": [
-      "vendor/**",
-      "*.d.ts"
-    ]
-  }
+  ]
 }
