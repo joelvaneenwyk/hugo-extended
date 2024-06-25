@@ -35,7 +35,7 @@
     "@jakejarvis/eslint-config": "*",
     "del": "^7.1.0",
     "eslint": "^8.56.0",
-    "mocha": "^10.4.0"
+    "mocha": "^10.5.1"
   },
   "scripts": {
     "postinstall": "node postinstall.js",
