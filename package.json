@@ -1,17 +1,17 @@
 {
-  "name": "hugo-extended",
+  "name": "@joelvaneenwyk/hugo-extended",
   "version": "0.128.0",
   "description": "✏️ Plug-and-play binary wrapper for Hugo Extended, the awesomest static-site generator.",
   "license": "MIT",
-  "homepage": "https://github.com/jakejarvis/hugo-extended",
-  "bin": {
-    "hugo": "lib/cli.js",
-    "hugo-extended": "lib/cli.js"
-  },
+  "homepage": "https://github.com/joelvaneenwyk/hugo-extended",
   "type": "module",
   "main": "dist/main.js",
-  "exports": "./index.js",
   "types": "./index.d.ts",
+  "exports": "./index.js",
+  "bin": {
+    "hugo": "dist/main.js",
+    "hugo-extended": "dist/main.js"
+  },
   "author": {
     "name": "Jake Jarvis",
     "email": "jake@jarv.is",
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jakejarvis/hugo-extended.git"
+    "url": "git+https://github.com/joelvaneenwyk/hugo-extended.git"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
     "postinstall": "node postinstall.js",
     "start": "node dist/main.js",
     "test": "npm run build && mocha",
-    "build": "esbuild lib/cli.js --format=esm --bundle --platform=node --outfile=dist/main.js --target=es2020 --tree-shaking=true --packages=external",
+    "build": "esbuild lib/cli.js --outfile=dist/main.js --format=esm --bundle --platform=node --target=es2020 --tree-shaking=true --packages=external",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
