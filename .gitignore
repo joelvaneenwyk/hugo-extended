@@ -3,3 +3,6 @@ vendor/
 .yarn/
 npm-debug.log
 package-lock.json
+
+dist/*
+!dist/main.js

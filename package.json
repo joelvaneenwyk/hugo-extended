@@ -4,6 +4,14 @@
   "description": "✏️ Plug-and-play binary wrapper for Hugo Extended, the awesomest static-site generator.",
   "license": "MIT",
   "homepage": "https://github.com/jakejarvis/hugo-extended",
+  "bin": {
+    "hugo": "lib/cli.js",
+    "hugo-extended": "lib/cli.js"
+  },
+  "type": "module",
+  "main": "dist/main.js",
+  "exports": "./index.js",
+  "types": "./index.d.ts",
   "author": {
     "name": "Jake Jarvis",
     "email": "jake@jarv.is",
@@ -13,39 +21,21 @@
     "type": "git",
     "url": "git+https://github.com/jakejarvis/hugo-extended.git"
   },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "start": "node dist/main.js",
+    "test": "npm run build && mocha",
+    "build": "esbuild lib/cli.js --format=esm --bundle --platform=node --outfile=dist/main.js --target=es2020 --tree-shaking=true --packages=external",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
+  },
   "files": [
     "index.js",
     "index.d.ts",
     "postinstall.js",
     "lib"
   ],
-  "bin": {
-    "hugo": "lib/cli.js",
-    "hugo-extended": "lib/cli.js"
-  },
-  "type": "module",
-  "exports": "./index.js",
-  "types": "./index.d.ts",
-  "dependencies": {
-    "careful-downloader": "^3.0.0",
-    "log-symbols": "^6.0.0",
-    "read-pkg-up": "^10.1.0"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.9",
-    "@eslint/js": "^9.6.0",
-    "del": "^7.1.0",
-    "eslint": "^9",
-    "globals": "^15.8.0",
-    "mocha": "^10.6.0"
-  },
-  "scripts": {
-    "postinstall": "node postinstall.js",
-    "test": "mocha",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
   "engines": {
     "node": ">=18"
   },
@@ -68,5 +58,19 @@
     "go",
     "golang"
   ],
-  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+  "dependencies": {
+    "careful-downloader": "^3.0.0",
+    "log-symbols": "^6.0.0",
+    "read-pkg-up": "^10.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "@eslint/js": "^9.6.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
+    "del": "^7.1.0",
+    "eslint": "^9",
+    "globals": "^15.8.0",
+    "mocha": "^10.6.0"
+  }
 }

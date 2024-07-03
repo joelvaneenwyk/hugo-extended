@@ -3,8 +3,15 @@ import pluginJs from "@eslint/js";
 
 /** @type {Array<import("@eslint/eslint-config").LinterConfig>} */
 export default [
+  pluginJs.configs.recommended,
   {
+    ignores: [
+      "vendor/**",
+      "*.d.ts",
+    ],
     languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: {
         ...globals.es6,
         ...globals.node,
@@ -15,19 +22,8 @@ export default [
         ecmaFeatures: {
           "jsx": true,
         },
-        sourceType: "module",
       },
     },
-    ignores: [
-      "vendor/**",
-      "*.d.ts",
-    ],
-    // import config from '@jakejarvis/eslint-config'
-    // extends: [
-    //   "eslint:recommended",
-    //   "plugin:compat/recommended",
-    //   "plugin:import/recommended",
-    // ],
     rules: {
       // Stylistic:
       "brace-style": "error",
@@ -113,5 +109,26 @@ export default [
       "template-curly-spacing": "error",
     },
   },
-  pluginJs.configs.recommended,
+  {
+    files: [
+      "test/*.js",
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+        ...globals.mocha,
+        ...globals.es6,
+      },
+    },
+  },
+  {
+    files: [
+      "dist/main.js",
+    ],
+    rules: {
+      "no-unused-vars": "off",
+      "camelcase": "off",
+    },
+  },
 ];
