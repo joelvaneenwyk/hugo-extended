@@ -2,38 +2,38 @@ name: Check for Hugo releases
 
 on:
   schedule:
-  - cron: '0 */3 * * *'   # run every three hours
+    - cron: "0 */3 * * *" # run every three hours
   workflow_dispatch:
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - name: Get latest Hugo version
-      id: hugo_version
-      run: |
-        HUGO_VERSION=$(curl --silent https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r .tag_name | sed 's/v//')
-        echo "::set-output name=VERSION::$HUGO_VERSION"
+      - name: Get latest Hugo version
+        id: hugo_version
+        run: |
+          HUGO_VERSION=$(curl --silent https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r .tag_name | sed 's/v//')
+          echo "::set-output name=VERSION::$HUGO_VERSION"
 
-    - name: Get current package version
-      id: package_version
-      run: |
-        setVersion=$(npm show hugo-extended hugoVersion)
-        npmVersion=$(npm show hugo-extended version)
-        PACKAGE_VERSION="${setVersion:-$npmVersion}"
-        echo "::set-output name=VERSION::$PACKAGE_VERSION"
-        
-    - name: Compare versions
-      id: update
-      run: |
-        echo "Current package version is v${{ steps.package_version.outputs.VERSION }}."
-        echo "Current Hugo version is v${{ steps.hugo_version.outputs.VERSION }}."
+      - name: Get current package version
+        id: package_version
+        run: |
+          setVersion=$(npm show hugo-extended hugoVersion)
+          npmVersion=$(npm show hugo-extended version)
+          PACKAGE_VERSION="${setVersion:-$npmVersion}"
+          echo "::set-output name=VERSION::$PACKAGE_VERSION"
 
-        if [ "${{ steps.hugo_version.outputs.VERSION }}" != "${{ steps.package_version.outputs.VERSION }}" ]
-        then
-          echo "🚨 Needs updating!"
-          exit 1
-        else
-          echo "✅ All good for now."
-          exit 0
-        fi
+      - name: Compare versions
+        id: update
+        run: |
+          echo "Current package version is v${{ steps.package_version.outputs.VERSION }}."
+          echo "Current Hugo version is v${{ steps.hugo_version.outputs.VERSION }}."
+
+          if [ "${{ steps.hugo_version.outputs.VERSION }}" != "${{ steps.package_version.outputs.VERSION }}" ]
+          then
+            echo "🚨 Needs updating!"
+            exit 1
+          else
+            echo "✅ All good for now."
+            exit 0
+          fi
