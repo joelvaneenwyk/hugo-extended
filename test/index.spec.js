@@ -5,6 +5,7 @@ import assert from "assert";
 import { deleteAsync } from "del";
 import hugo from "../index.js";
 import { getBinPath } from "../lib/utils.js";
+import { it } from "mocha";
 
 it("Hugo exists and runs?", async function () {
   this.timeout(30000); // increase timeout to an excessive 30 seconds for CI

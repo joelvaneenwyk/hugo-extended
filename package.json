@@ -27,19 +27,25 @@
   "exports": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
     "careful-downloader": "^3.0.0",
-    "log-symbols": "^5.1.0",
-    "read-pkg-up": "^9.1.0"
+    "log-symbols": "^6.0.0",
+    "read-pkg-up": "^10.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.6.0",
     "@jakejarvis/eslint-config": "*",
     "del": "^7.1.0",
-    "eslint": "^8.56.0",
-    "mocha": "^10.4.0"
+    "eslint": "9.x",
+    "globals": "^15.8.0",
+    "mocha": "^10.6.0"
   },
   "scripts": {
     "postinstall": "node postinstall.js",
-    "test": "eslint . && mocha"
+    "test": "mocha",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix --verbose"
   },
   "engines": {
     "node": ">=14.14"
@@ -77,5 +83,6 @@
       "vendor/**",
       "*.d.ts"
     ]
-  }
+  },
+  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
 }
