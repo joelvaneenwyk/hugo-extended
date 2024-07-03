@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@types/mocha':
-        specifier: ^10.0.7
-        version: 10.0.7
-      '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
       careful-downloader:
         specifier: ^3.0.0
         version: 3.0.0
@@ -27,11 +21,17 @@ importers:
       '@eslint/js':
         specifier: ^9.6.0
         version: 9.6.0
+      '@types/mocha':
+        specifier: ^10.0.7
+        version: 10.0.7
+      '@types/node':
+        specifier: ^20.14.9
+        version: 20.14.9
       del:
         specifier: ^7.1.0
         version: 7.1.0
       eslint:
-        specifier: 9.x
+        specifier: ^9
         version: 9.6.0
       globals:
         specifier: ^15.8.0

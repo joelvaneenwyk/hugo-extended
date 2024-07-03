@@ -27,16 +27,16 @@
   "exports": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.9",
     "careful-downloader": "^3.0.0",
     "log-symbols": "^6.0.0",
     "read-pkg-up": "^10.1.0"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.9",
     "@eslint/js": "^9.6.0",
     "del": "^7.1.0",
-    "eslint": "9.x",
+    "eslint": "^9",
     "globals": "^15.8.0",
     "mocha": "^10.6.0"
   },
