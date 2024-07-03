@@ -1,6 +1,6 @@
 {
   "name": "hugo-extended",
-  "version": "0.124.1",
+  "version": "0.128.0",
   "description": "✏️ Plug-and-play binary wrapper for Hugo Extended, the awesomest static-site generator.",
   "license": "MIT",
   "homepage": "https://github.com/jakejarvis/hugo-extended",
@@ -48,7 +48,7 @@
     "lint:fix": "eslint . --fix --verbose"
   },
   "engines": {
-    "node": ">=14.14"
+    "node": ">=16.14"
   },
   "keywords": [
     "hugo",

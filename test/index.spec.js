@@ -13,9 +13,9 @@ it("Hugo exists and runs?", async function () {
   const hugoPath = await hugo();
 
   assert(execFile(hugoPath, ["env"], function (error, stdout) {
-    if (error) {
+    if (error)
       throw error;
-    }
+
     console.log(stdout);
   }));
 });
@@ -29,9 +29,9 @@ it("Hugo doesn't exist, install it instead of throwing an error", async function
   const hugoPath = await hugo();
 
   assert(execFile(hugoPath, ["version"], function (error, stdout) {
-    if (error) {
+    if (error)
       throw error;
-    }
+
     console.log(stdout);
   }));
 });
