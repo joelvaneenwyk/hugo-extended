@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu, macos, windows]
-        node: [20, 18, 16]
+        node: [20, 18]
       fail-fast: false
     runs-on: '${{ matrix.os }}-latest'
     name: 'Node Validation // ${{ matrix.os }} // v${{ matrix.node }}'
