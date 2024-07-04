@@ -13,7 +13,7 @@ jobs:
         id: hugo_version
         run: |
           HUGO_VERSION=$(curl --silent https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r .tag_name | sed 's/v//')
-          echo "::set-output name=VERSION::$HUGO_VERSION"
+          echo "VERSION=$HUGO_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Get current package version
         id: package_version
@@ -21,7 +21,7 @@ jobs:
           setVersion=$(npm show hugo-extended hugoVersion)
           npmVersion=$(npm show hugo-extended version)
           PACKAGE_VERSION="${setVersion:-$npmVersion}"
-          echo "::set-output name=VERSION::$PACKAGE_VERSION"
+          echo "VERSION=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Compare versions
         id: update
