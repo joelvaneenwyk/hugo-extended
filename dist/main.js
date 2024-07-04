@@ -18,8 +18,8 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import { execFileSync } from "child_process";
-import { readPackageUpSync } from "read-pkg-up";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { readPackageUpSync } from "read-package-up";
+var __dirname = path.dirname(fileURLToPath(import.meta.url));
 function getPkgVersion() {
   const { packageJson } = readPackageUpSync({ cwd: __dirname });
   return packageJson.hugoVersion || packageJson.version;
@@ -35,7 +35,7 @@ function getBinPath() {
     __dirname,
     "..",
     "vendor",
-    getBinFilename(),
+    getBinFilename()
   );
 }
 function getBinVersion(bin) {
@@ -83,7 +83,7 @@ function isExtended(releaseFile) {
 }
 
 // lib/install.js
-const __dirname2 = path2.dirname(fileURLToPath2(import.meta.url));
+var __dirname2 = path2.dirname(fileURLToPath2(import.meta.url));
 async function install() {
   try {
     const version = getPkgVersion();
@@ -99,7 +99,7 @@ async function install() {
       filename: releaseFile,
       destDir: path2.join(__dirname2, "..", "vendor"),
       algorithm: "sha256",
-      extract: true,
+      extract: true
     });
     const installedToPath = path2.join(download, binFile);
     fs2.chmodSync(installedToPath, 493);
@@ -111,10 +111,10 @@ async function install() {
     throw error;
   }
 }
-const install_default = install;
+var install_default = install;
 
 // index.js
-const hugo = async () => {
+var hugo = async () => {
   const bin = getBinPath();
   if (!doesBinExist(bin)) {
     console.info(`${logSymbols2.info} Hugo is missing, reinstalling now...`);
@@ -122,7 +122,7 @@ const hugo = async () => {
   }
   return bin;
 };
-const hugo_extended_default = hugo;
+var hugo_extended_default = hugo;
 
 // lib/cli.js
 (async () => {
