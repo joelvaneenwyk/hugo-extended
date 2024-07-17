@@ -64,7 +64,7 @@
     "read-package-up": "^11.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.7.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.14.10",
     "del": "^7.1.0",
