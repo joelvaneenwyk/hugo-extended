@@ -66,7 +66,7 @@
   "devDependencies": {
     "@eslint/js": "^9.7.0",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.10",
+    "@types/node": "^22.7.2",
     "del": "^7.1.0",
     "esbuild": "^0.23.0",
     "eslint": "^9.7.0",
